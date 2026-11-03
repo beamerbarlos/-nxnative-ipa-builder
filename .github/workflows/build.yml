@@ -430,6 +430,9 @@ jobs:
             exit 1
           fi
 
+          echo "Using: $CHAIN_SCRIPT"
+          head -60 "$CHAIN_SCRIPT"
+
           python "$CHAIN_SCRIPT" --update-lock
           python "$CHAIN_SCRIPT" --header
 
