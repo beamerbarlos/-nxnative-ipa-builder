@@ -433,8 +433,10 @@ jobs:
           echo "Using: $CHAIN_SCRIPT"
           head -60 "$CHAIN_SCRIPT"
 
-          python "$CHAIN_SCRIPT" --update-lock
-          python "$CHAIN_SCRIPT" --header
+          TOOL_LOCK="$(find . -name tool_lock.py -type f -print -quit)"
+          echo "Using: $TOOL_LOCK"
+          head -40 "$TOOL_LOCK"
+          python "$TOOL_LOCK" --help || true
 
       - name: Build unsigned IPA
         shell: bash
